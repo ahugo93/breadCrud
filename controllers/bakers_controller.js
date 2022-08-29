@@ -13,16 +13,20 @@ bakerRouter.get('/', (req, res) => {
         })
 })                    
 
-// Show: 
+// Show:  
 bakerRouter.get('/:id', (req, res) => {
     Baker.findById(req.params.id)
-        .populate('breads')
+        .populate({
+            path: 'breads',
+            options: { limit: 3 }
+        })
         .then(foundBaker => {
             res.render('bakerShow', {
                 baker: foundBaker
             })
         })
 })
+
 
 
 // delete

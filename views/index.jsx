@@ -23,9 +23,9 @@ function Index ({breads, bakers, title})  {
       {/* This is a JSX comment. */}
       {/* <p>I have {breads[0].name} bread!</p> */}
       <ul>
-        {breads.map((bread, index) => {
+        {breads.map((bread) => {
           return (
-            <li key={index}>
+            <li key= {bread.id}>
               <a href={`/breads/${bread.id}`}>
                 {bread.name}
               </a>
